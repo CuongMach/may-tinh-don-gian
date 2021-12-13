@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính bỏ túi</title>
+<style>
+    .boxcenter{
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    input[type="button"]{
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        margin: 3px;
+    }
+
+    input[type="text"]{
+        width: 87%;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        margin: 3px;
+    }
+</style>
+
+</head>
+<body>
+<form>
+</form>
+<div class="boxcenter">
+    <input type="text" name="ketqua" id="ketqua">
+
+    <input type="button" value="1" name="toanhang1" onclick="toanhang(this)">
+    <input type="button" value="2" name="toanhang2" onclick="toanhang(this)">
+    <input type="button" value="3" name="toanhang3" onclick="toanhang(this)">
+    <input type="button" value="+" name="toantucong" onclick="toantu(this)">
+
+    <input type="button" value="4" name="toanhang4" onclick="toanhang(this)">
+    <input type="button" value="5" name="toanhang5" onclick="toanhang(this)">
+    <input type="button" value="6" name="toanhang6" onclick="toanhang(this)">
+    <input type="button" value="-" name="toantutru" onclick="toantu(this)">
+
+    <input type="button" value="7" name="toanhang7" onclick="toanhang(this)">
+    <input type="button" value="8" name="toanhang8" onclick="toanhang(this)">
+    <input type="button" value="9" name="toanhang9" onclick="toanhang(this)">
+    <input type="button" value="x" name="toantunhan" onclick="toantu(this)">
+
+    <input type="button" value="C" name="toantu" onclick="lamlai(this)">
+    <input type="button" value="0" name="toanhang0" onclick="toanhang(this)">
+    <input type="button" value="=" name="toantu" onclick="thuchien(this)">
+    <input type="button" value="/" name="toantu" onclick="toantu(this)">
+
+</div>
+</body>
+</html>
+<script>
+    var a = null;
+    var b = null;
+    var o = null;
+    var kq = "";
+
+    function hienthi(x){
+        if (( x !== "") && (x !== "ok")) {
+            kq += x;
+        }
+        document.getElementById("ketqua").value = kq;
+    }
+
+    function toanhang(x) {
+        if (a == null){
+            a = parseInt(x.value)
+        }else {
+            b = parseInt(x.value)
+        }
+        hienthi(x.value);
+    }
+
+    function toantu(x){
+        o = x.value;
+        hienthi(x.value);
+    }
+
+    function thuchien() {
+        switch (o) {
+            case '+':
+                kq = a + b;
+                break;
+
+            case '-':
+                kq = a - b;
+                break;
+
+            case 'x':
+                kq = a * b;
+                break;
+
+            case '/':
+                kq = a / b;
+                break;
+        }
+
+        hienthi("ok");
+        lamlai();
+
+    }
+
+                    function lamlai() {
+                        a = null;
+                        b = null;
+                        o = null;
+                        kq = "";
+                    }
+</script>
